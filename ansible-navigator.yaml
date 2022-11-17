@@ -1,0 +1,17 @@
+---
+ansible-navigator:
+  execution-environment:
+    container-engine: podman
+    image: ee-supported-rhel8:2.0.0
+    enabled: false
+
+  # playbook-artifact:
+  #   save-as: /home/devops/playbook-artifacts/{playbook_name}-artifact-{ts_utc}.json
+
+  logging:
+    level: debug
+
+  editor:
+    command: code {filename}
+    console: false
+

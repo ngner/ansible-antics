@@ -1,0 +1,51 @@
+- name: Demonstrate globbing lookup plugin
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  tasks:
+
+    # - name: Ensure v*rc files are listed
+    #   debug:
+    #     msg: |-
+    #       " {{ query('fileglob', '/etc/v*rc') }}"
+    #       " {{ lookup('fileglob', '/etc/v*rc') }}"
+    # - name: Ensure f*.conf file contents have been shown
+    #   loop: "{{ query('fileglob', '/etc/f*.conf') }}"
+    #   debug:
+    #     msg: "{{ query('file', item) }}"
+    # - name: Check space available
+    #   debug:
+    #     msg: >
+    #       These are our facts
+    #       {{ ansible_facts[ 'mounts' ] | to_nice_json }}
+    # - name: render a template
+    #   vars: 
+    #     my_name: example_name
+    #   debug:
+    #     msg: "{{ lookup('template', 'my.template.j2') }}" # note the relative path and use vars above.
+    # - name: muck about with loops
+    #   vars:
+    #     my_string: some text
+    #   loop: "{{ my_string | list }}"
+    #   debug:
+    #     msg: " Backwards word is {{ item }} "
+  
+    - name: Subelement dict loops
+      vars:
+        my_dict:
+        - name: paul
+          pass: someitme
+          sublist:
+          - item1
+          - item2
+          - item3
+        - name: nick 
+          pass: someitme
+          sublist:
+          - item1
+          - item2
+          - item3
+      loop: "{{ my_dict | subelements('sublist') }}"
+      debug:
+        msg: " result = {{ item[0]['name'] }}  with {{ item[0]['pass'] }} and parts {{ item[1] }} "
