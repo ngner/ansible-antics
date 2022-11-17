@@ -1,1 +1,2 @@
 *.log
+*artifact[0-9]*
