@@ -1,0 +1,19 @@
+use .vimrc
+
+:set paste
+
+Select using Shift V and arrow key
+Indent by entering > or indent n time by pressing 2 then >
+Once select one can move that selection further using more > enter or more n > enter see bottom of screen for command in buffer.
+
+find Tabs using 
+:set list
+change all tabs to spaces with
+:retab
+
+esc :!  will give shell
+when on a line and use :!{somecommand e.g. ls} it will add that content
+
+esc :read somefile - will add that at the cursor
+
+
