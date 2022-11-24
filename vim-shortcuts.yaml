@@ -1,5 +1,8 @@
 use .vimrc
 
+
+:0 before first character in line 
+
 :set paste
 
 Select using Shift V and arrow key
@@ -15,5 +18,12 @@ esc :!  will give shell
 when on a line and use :!{somecommand e.g. ls} it will add that content
 
 esc :read somefile - will add that at the cursor
+
+yank and paste tricks
+yy whole line (includes \n)
+y$ yank to end of line excludes \n
+p paste after cursor
+P paste before cursor
+
 
 
