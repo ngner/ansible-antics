@@ -26,4 +26,9 @@ p paste after cursor
 P paste before cursor
 
 
+Search and replace
+%s/search/replace/gc
+% means whole file
+8,10 s/sm/oth/g does thoes lines
+/c means confirm use with 
 
